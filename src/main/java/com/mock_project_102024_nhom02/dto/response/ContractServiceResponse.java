@@ -24,6 +24,10 @@ public class ContractServiceResponse {
 
     String status;
 
+    LocalDate dayDelete;
+
+    int deleteStatus;
+
     UserResponse user;
 
     StaffResponse staff;

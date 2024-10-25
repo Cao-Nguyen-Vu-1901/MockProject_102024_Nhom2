@@ -1,6 +1,7 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -35,6 +36,12 @@ public class RepairHistory implements Serializable {
 
     @Column(name = "describe_")
     String description;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
     @ManyToOne
     @JoinColumn(name = "id_staff_")

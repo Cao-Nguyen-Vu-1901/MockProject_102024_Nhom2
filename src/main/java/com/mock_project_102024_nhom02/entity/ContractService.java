@@ -1,8 +1,10 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -32,6 +34,12 @@ public class ContractService implements Serializable {
 
     @Column(name = "quality_standards_")
     String qualityStandards;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
     @Column(name = "status_")
     String status;

@@ -2,7 +2,9 @@ package com.mock_project_102024_nhom02.dto.response;
  
 import lombok.*;
 import lombok.experimental.FieldDefaults;
- 
+
+import java.time.LocalDate;
+
 
 @Data
 @Builder
@@ -31,4 +33,7 @@ public class UserResponse {
  
     String total_payment;
 
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }

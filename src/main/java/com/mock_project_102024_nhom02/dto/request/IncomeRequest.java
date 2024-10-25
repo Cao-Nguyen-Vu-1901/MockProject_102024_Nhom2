@@ -4,6 +4,8 @@ package com.mock_project_102024_nhom02.dto.request;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
+
 
 @Data
 @Builder
@@ -12,8 +14,6 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE) 
 public class IncomeRequest {
 
-    String id;
- 
     String user;
  
     String apartment;
@@ -26,7 +26,7 @@ public class IncomeRequest {
  
     String total;
  
-    String paymentDeadline;
+    LocalDate paymentDeadline;
  
     String typeIncome;
 }

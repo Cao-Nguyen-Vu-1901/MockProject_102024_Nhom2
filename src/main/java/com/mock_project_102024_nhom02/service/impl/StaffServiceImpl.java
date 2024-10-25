@@ -1,11 +1,5 @@
 package com.mock_project_102024_nhom02.service.impl;
 
-import com.mock_project_102024_nhom02.entity.Role;
-import com.mock_project_102024_nhom02.entity.Staff;
-import com.mock_project_102024_nhom02.exception.AppException;
-import com.mock_project_102024_nhom02.exception.ErrorCode;
-import com.mock_project_102024_nhom02.mapper.StaffMapper;
-import com.mock_project_102024_nhom02.repository.RoleRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -15,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -23,6 +18,12 @@ import com.mock_project_102024_nhom02.dto.request.StaffRequest;
 import com.mock_project_102024_nhom02.dto.response.StaffResponse;
 import com.mock_project_102024_nhom02.repository.StaffRepository;
 import com.mock_project_102024_nhom02.service.StaffService;
+import com.mock_project_102024_nhom02.entity.Role;
+import com.mock_project_102024_nhom02.entity.Staff;
+import com.mock_project_102024_nhom02.exception.AppException;
+import com.mock_project_102024_nhom02.exception.ErrorCode;
+import com.mock_project_102024_nhom02.mapper.StaffMapper;
+import com.mock_project_102024_nhom02.repository.RoleRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -44,17 +45,24 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Page<StaffResponse> getAllStaff(String searchValue, String status, int currentPage, int pageSize) {
+    public Page<StaffResponse> getAllStaffWithCondition(String searchValue, String status, String accountType, int currentPage, int pageSize) {
         Pageable pageable = PageRequest.of(currentPage -1, pageSize);
         Page<StaffResponse> responses = null;
         if(Objects.isNull(searchValue)){
             responses = staffRepository.findAllByStatus(status, pageable)
                     .map(staffMapper::toStaffResponse);
         } else {
-            responses = staffRepository.findAllByNameAndStatus(searchValue, status, pageable)
+            Role role = roleRepository.findByNameRole(accountType).orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_EXISTED));
+            responses = staffRepository.findAllByPhoneAndStatusAndRole(searchValue, status, role, pageable)
                     .map(staffMapper::toStaffResponse);
         }
         return responses;
+    }
+
+    @Override
+    public List<StaffResponse> getAllStaff() {
+        return staffRepository.findAll()
+                .stream().map(staffMapper::toStaffResponse).collect(Collectors.toList());
     }
 
     @Override
@@ -80,6 +88,10 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void deleteStaff(String staffId) {
-
+        var staff = staffRepository.findById(staffId)
+                .orElseThrow(() -> new AppException(ErrorCode.STAFF_NOT_EXISTED));
+        staff.setDeleteStatus(0);
+        staff.setDayDelete(LocalDate.now());
+        staffRepository.save(staff);
     }
 }

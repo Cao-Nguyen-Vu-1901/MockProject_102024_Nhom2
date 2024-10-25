@@ -21,6 +21,10 @@ public class PaymentResponse {
     IncomeResponse income; 
 
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     BigDecimal total;
  

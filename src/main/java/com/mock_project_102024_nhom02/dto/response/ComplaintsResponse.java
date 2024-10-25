@@ -33,4 +33,8 @@ public class ComplaintsResponse  {
     String note;
 
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }

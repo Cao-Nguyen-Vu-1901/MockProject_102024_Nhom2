@@ -28,5 +28,9 @@ public class EquipmentResponse {
     String location; 
     
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

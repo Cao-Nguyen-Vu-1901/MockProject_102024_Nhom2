@@ -1,9 +1,10 @@
 package com.mock_project_102024_nhom02.dto.response;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
- 
+
+import java.time.LocalDate;
+
 
 @Data
 @Builder
@@ -11,13 +12,12 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE) 
 public class TypeEquipmentResponse {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_")
     String id;
 
-    @Column(name = "name_")
     String name;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

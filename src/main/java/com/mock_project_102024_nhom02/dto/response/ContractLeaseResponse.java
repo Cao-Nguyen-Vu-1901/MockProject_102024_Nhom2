@@ -27,6 +27,10 @@ public class ContractLeaseResponse  {
     LocalDate leaseStartDate;
  
     LocalDate leaseEndDate;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     UserResponse user;
  

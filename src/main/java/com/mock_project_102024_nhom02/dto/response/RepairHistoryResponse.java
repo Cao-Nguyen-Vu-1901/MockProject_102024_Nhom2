@@ -22,6 +22,10 @@ public class RepairHistoryResponse  {
     BigDecimal price;
  
     String description;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     StaffResponse staff;
 }

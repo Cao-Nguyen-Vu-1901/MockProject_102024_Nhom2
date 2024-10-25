@@ -4,6 +4,8 @@ package com.mock_project_102024_nhom02.dto.response;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
+
 
 @Data
 @Builder
@@ -15,20 +17,24 @@ public class IncomeResponse {
     
     String id;
  
-    UserResponse user;
- 
-    ApartmentResponse apartment;
- 
-    String status; 
-
-    ServiceResponse service;
- 
-    PaymentMethodResponse paymentMethod;
+    String status;
  
     String total;
  
     String paymentDeadline;
- 
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
+
+    UserResponse user;
+
+    ApartmentResponse apartment;
+
+    ServiceResponse service;
+
+    PaymentMethodResponse paymentMethod;
+
     TypeIncomeResponse typeIncome;
 }
 

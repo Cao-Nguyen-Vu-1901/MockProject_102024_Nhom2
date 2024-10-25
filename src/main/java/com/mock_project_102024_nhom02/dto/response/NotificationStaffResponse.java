@@ -26,5 +26,9 @@ public class NotificationStaffResponse  {
     LocalDate noticeDate;
  
     String sender;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

@@ -34,6 +34,10 @@ public class TechnicalRepairResponse {
     String description;
  
     int floor;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     EquipmentResponse equipment;
 }

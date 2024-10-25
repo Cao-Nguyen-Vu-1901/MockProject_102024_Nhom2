@@ -3,6 +3,7 @@ package com.mock_project_102024_nhom02.dto.response;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -19,11 +20,10 @@ public class SuppliersResponse{
     String phone;
     
     String address;
- 
-    List<ContractLeaseResponse> contractLeases;
- 
-    List<ContractServiceResponse> contractServices;
- 
-    List<UtilityContractResponse> utilityContracts;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
+
 }
 

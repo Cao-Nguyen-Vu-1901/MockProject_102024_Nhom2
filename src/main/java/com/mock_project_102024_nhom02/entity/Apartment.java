@@ -1,11 +1,13 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -23,7 +25,7 @@ public class Apartment implements Serializable {
     String id;
 
     @Column(name = "flor_")
-    Integer flor;
+    int flor;
 
     @Column(name = "status_")
     String status;
@@ -32,7 +34,7 @@ public class Apartment implements Serializable {
     String numApartment;
 
     @Column(name = "num_bedroom_")
-    Integer numBedroom;
+    int numBedroom;
 
     @Column(name = "square_")
     BigDecimal square;
@@ -43,21 +45,10 @@ public class Apartment implements Serializable {
     @Column(name = "address_")
     String address;
 
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<RentalRequest> rentalRequest;
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
 
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<ContractLease> contractLeases;
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<MaintenanceRepair> maintenanceRepair;
-
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<Complaints> complaints;
-
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<ScheduleAHomeInspection> sheScheduleAHomeInspections;
-
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    List<Income> incomes;
 }

@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
  
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -15,15 +16,25 @@ public class OutcomeResponse   {
     String id;
  
     String status;
- 
+
     String nameService;
  
     String description;
  
     BigDecimal price;
+
+    LocalDate dayOutcome;
+
+    String details;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     TypeOutcomeResponse typeOutcome;
  
     RepairHistoryResponse repairHistory;
+
+    SuppliersResponse suppliers;
 }
 

@@ -1,12 +1,12 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -48,6 +48,21 @@ public class User implements Serializable {
     String debt;
 
     @Column(name = "total_payment_")
-    String total_payment;
+    BigDecimal totalPayment;
+
+    @Column(name = "start_day_")
+    LocalDate startDay;
+
+    @Column(name = "end_day_")
+    LocalDate endDay;
+
+    @Column(name = "address_")
+    String address;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
 }

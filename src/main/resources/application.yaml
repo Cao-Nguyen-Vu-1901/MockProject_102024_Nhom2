@@ -11,7 +11,7 @@ spring:
     show-sql:
       true
     hibernate:
-      dialect: org.hibernate.dialect.SQLServer2019Dialect
+      dialect: org.hibernate.dialect.SQLServerDialect
       ddl-auto: update
 
 

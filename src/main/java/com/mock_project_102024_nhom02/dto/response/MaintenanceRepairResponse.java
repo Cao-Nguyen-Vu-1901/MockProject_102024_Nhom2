@@ -26,5 +26,9 @@ public class MaintenanceRepairResponse{
     String conditionOfDamage;
  
     EquipmentResponse equipment;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

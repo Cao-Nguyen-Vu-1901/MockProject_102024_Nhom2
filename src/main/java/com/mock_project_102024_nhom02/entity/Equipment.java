@@ -1,5 +1,7 @@
 package com.mock_project_102024_nhom02.entity;
+
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -35,12 +37,18 @@ public class Equipment implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_type_")
-    TypeEquipment type;
+    TypeEquipment typeEquipment;
 
     @Column(name = "location_")
     String location;
 
     @Column(name = "status_")
     String status;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 }
 

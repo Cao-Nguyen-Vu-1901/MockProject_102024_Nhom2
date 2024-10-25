@@ -25,6 +25,10 @@ public class UtilityContractResponse {
     BigDecimal price;
  
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
  
     UserResponse user;
  

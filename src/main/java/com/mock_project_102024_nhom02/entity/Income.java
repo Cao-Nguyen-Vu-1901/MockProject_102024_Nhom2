@@ -1,11 +1,12 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -22,6 +23,21 @@ public class Income implements Serializable {
     @Column(name = "id_")
     String id;
 
+    @Column(name = "status_")
+    String status;
+
+    @Column(name = "total_")
+    String total;
+
+    @Column(name = "payment_deadline_")
+    LocalDate paymentDeadline;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
+
     @ManyToOne
     @JoinColumn(name = "id_user_")
     User user;
@@ -30,9 +46,6 @@ public class Income implements Serializable {
     @JoinColumn(name = "id_apartment_")
     Apartment apartment;
 
-    @Column(name = "status_")
-    String status;
-
     @ManyToOne
     @JoinColumn(name = "id_service_")
     Service service;
@@ -40,12 +53,6 @@ public class Income implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_payment_method_")
     PaymentMethod paymentMethod;
-
-    @Column(name = "total_")
-    BigDecimal total;
-
-    @Column(name = "payment_deadline_")
-    String paymentDeadline;
 
     @ManyToOne
     @JoinColumn(name = "id_type_income_")

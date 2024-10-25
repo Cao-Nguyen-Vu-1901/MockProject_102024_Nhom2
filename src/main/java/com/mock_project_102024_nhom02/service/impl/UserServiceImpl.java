@@ -1,7 +1,5 @@
 package com.mock_project_102024_nhom02.service.impl;
 
-import com.mock_project_102024_nhom02.dto.response.StaffResponse;
-import com.mock_project_102024_nhom02.mapper.UserMapper;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -14,11 +12,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import com.mock_project_102024_nhom02.dto.request.UserRequest;
 import com.mock_project_102024_nhom02.dto.response.UserResponse;
 import com.mock_project_102024_nhom02.repository.UserRepository;
 import com.mock_project_102024_nhom02.service.UserService;
+import com.mock_project_102024_nhom02.mapper.UserMapper;
 
 @Service
 @RequiredArgsConstructor
@@ -44,14 +44,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<UserResponse> getAllUsers(String searchValue, String status, int currentPage, int pageSize) {
-        Pageable pageable = PageRequest.of(currentPage -1, pageSize);
+    public List<UserResponse> getAllUsers() {
+        return userRepository.findAll()
+                .stream().map(userMapper::toUserResponse).collect(Collectors.toList());
+    }
+
+    @Override
+    public Page<UserResponse> getAllUsersWithCondition(String searchValue, String status, int currentPage, int pageSize) {
+        Pageable pageable = PageRequest.of(currentPage - 1, pageSize);
         Page<UserResponse> responses = null;
-        if(Objects.isNull(searchValue)){
+        if (Objects.isNull(searchValue)) {
             responses = userRepository.findAllByStatus(status, pageable)
                     .map(userMapper::toUserResponse);
         } else {
-            responses = userRepository.findAllByNameAndStatus(searchValue, status, pageable)
+            responses = userRepository.findAllByPhoneAndStatus(searchValue, status, pageable)
                     .map(userMapper::toUserResponse);
         }
         return responses;

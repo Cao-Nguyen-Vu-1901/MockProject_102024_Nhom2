@@ -1,6 +1,7 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -46,5 +47,11 @@ public class RentalRequest implements Serializable {
 
     @Column(name = "status_")
     String status;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 }
 

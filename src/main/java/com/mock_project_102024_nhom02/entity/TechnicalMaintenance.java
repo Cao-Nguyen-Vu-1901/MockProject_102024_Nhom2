@@ -1,6 +1,7 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -53,6 +54,12 @@ public class TechnicalMaintenance implements Serializable {
 
     @Column(name = "floor_")
     int floor;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
     @ManyToOne
     @JoinColumn(name = "id_equipment_")

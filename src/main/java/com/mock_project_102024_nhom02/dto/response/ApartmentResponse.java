@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -28,6 +29,10 @@ public class ApartmentResponse {
     BigDecimal rentPrice;
 
     String address;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 
     List<ContractLeaseResponse> contractLeases;
 }

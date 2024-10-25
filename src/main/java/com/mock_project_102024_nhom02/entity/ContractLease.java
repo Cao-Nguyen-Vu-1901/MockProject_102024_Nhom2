@@ -29,7 +29,7 @@ public class ContractLease implements Serializable {
     @Column(name = "contact_info_")
     String contactInfo;
 
-    @Column(name = "rental_fee_")
+    @Column(name = "rental_fee_", columnDefinition = "TEXT")
     String rentalFee;
 
     @Column(name = "payment_period_")
@@ -40,6 +40,12 @@ public class ContractLease implements Serializable {
 
     @Column(name = "lease_end_date_")
     LocalDate leaseEndDate;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
     @ManyToOne
     @JoinColumn(name = "id_user_")

@@ -1,10 +1,12 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
 import java.io.Serializable;
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,13 +32,11 @@ public class Suppliers implements Serializable {
     @Column(name = "address_")
     String address;
 
-    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
-    List<ContractLease> contractLeases;
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
 
-    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
-    List<ContractService> contractServices;
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
-    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
-    List<UtilityContract> utilityContracts;
 }
 

@@ -1,6 +1,7 @@
 package com.mock_project_102024_nhom02.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -39,14 +40,20 @@ public class Complaints implements Serializable {
     @Column(name = "content_of_complaint_")
     String contentOfComplaint;
 
-    @Column(name = "proof_img_")
+    @Column(name = "proof_img_", columnDefinition = "TEXT")
     String proofImg;
+
+    @Column(name = "day_delete_")
+    LocalDate dayDelete;
+
+    @Column(name = "delete_status_")
+    int deleteStatus;
 
     @ManyToOne
     @JoinColumn(name = "id_staff_")
     Staff staff;
 
-    @Column(name = "note_")
+    @Column(name = "note_", columnDefinition = "TEXT")
     String note;
 
     @Column(name = "status_")

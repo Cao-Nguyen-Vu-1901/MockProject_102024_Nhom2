@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Map;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -16,9 +18,7 @@ public class PagingResponse<T> {
     int code;
     int currentPage;
     int pageSize;
-    String status;
-    String accountType;
-    String searchValue;
+    Map<String, String> search;
     long totalItem;
     int totalPage;
     T result;

@@ -29,5 +29,9 @@ public class RentalRequestResponse {
     String job;
  
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

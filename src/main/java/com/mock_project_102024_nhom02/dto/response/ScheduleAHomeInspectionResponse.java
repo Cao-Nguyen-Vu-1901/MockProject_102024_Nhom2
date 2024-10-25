@@ -23,5 +23,9 @@ public class ScheduleAHomeInspectionResponse {
     LocalDate date;
  
     String status;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 

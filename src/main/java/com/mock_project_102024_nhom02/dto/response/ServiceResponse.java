@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
  
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -21,5 +22,9 @@ public class ServiceResponse{
     String regulation;
  
     String description;
+
+    LocalDate dayDelete;
+
+    int deleteStatus;
 }
 
