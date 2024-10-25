@@ -35,6 +35,8 @@ public enum ErrorCode {
     SUPPLIER_INCOME_EXISTED(1114, "Supplier existed", HttpStatus.BAD_REQUEST),
     TYPE_OUTCOME_NOT_EXISTED(1015, "Type outcome is not existed", HttpStatus.NOT_FOUND),
     TYPE_OUTCOME_EXISTED(1115, "Type outcome existed", HttpStatus.BAD_REQUEST),
+    COMPLAIN_NOT_EXISTED(1016, "Complain is not existed", HttpStatus.NOT_FOUND),
+    COMPLAIN_EXISTED(1116, "Complain outcome existed", HttpStatus.BAD_REQUEST),
 
     DATE_INVALID(1910, "Date invalid", HttpStatus.BAD_REQUEST),
 

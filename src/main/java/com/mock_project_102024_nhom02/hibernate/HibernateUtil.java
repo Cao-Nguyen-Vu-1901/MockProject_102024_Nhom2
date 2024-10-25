@@ -14,10 +14,8 @@ import java.util.Properties;
 import com.mock_project_102024_nhom02.entity.*;
 
 @EntityScan(basePackages = "com.mock_project_102024_nhom02.entity")
-
 public class HibernateUtil {
     private static final SessionFactory FACTORY;
-
 
     static {
         Configuration conf = new Configuration();

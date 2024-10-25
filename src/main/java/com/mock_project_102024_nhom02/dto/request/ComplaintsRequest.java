@@ -12,16 +12,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE) 
 public class ComplaintsRequest  {
-
-    String id;
-
-    String apartment;
-
     String user;
 
     LocalDate complaintDate;
 
     LocalDate expectedCompletionDate;
+
+    String apartment;
 
     String contentOfComplaint;
 
